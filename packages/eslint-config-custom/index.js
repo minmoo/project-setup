@@ -1,5 +1,12 @@
 module.exports = {
-  extends: ["next", "turbo", "airbnb", "airbnb-typescript", "prettier"], // 설정을 가져와 base설정
+  extends: [
+    "next",
+    "turbo",
+    "airbnb",
+    "airbnb-typescript",
+    "tailwindcss",
+    "prettier",
+  ], // 설정을 가져와 base설정
   parserOptions: {
     project: "./tsconfig.json",
     // tsconfigRootDir: __dirname,
@@ -17,4 +24,4 @@ module.exports = {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "warn",
   },
-};
+}
