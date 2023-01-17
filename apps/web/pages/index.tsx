@@ -1,7 +1,16 @@
 import { Button } from "ui"
 import tw, { styled, css } from "twin.macro"
-import { Badge, Stack, chakra, shouldForwardProp, Box } from "@chakra-ui/react"
+import {
+  Badge,
+  Stack,
+  chakra,
+  shouldForwardProp,
+  Box,
+  Icon,
+  HStack,
+} from "@chakra-ui/react"
 import { isValidMotionProp, motion } from "framer-motion"
+import { MdSettings, MdReceipt, MdGroupWork } from "react-icons/md"
 
 const variant = {
   hover: {
@@ -75,6 +84,17 @@ export default function Web() {
       >
         I'm Dizzy!
       </ChakraBox>
+
+      <HStack>
+        {/* The default icon size is 1em (16px) */}
+        <Icon as={MdSettings} />
+
+        {/* Use the `boxSize` prop to change the icon size */}
+        <Icon as={MdReceipt} boxSize={6} />
+
+        {/* Use the `color` prop to change the icon color */}
+        <Icon as={MdGroupWork} w={8} h={8} color="red.500" />
+      </HStack>
       <Wrap size={10}>Emotion + Twin</Wrap>
       <Wrap size={50}>Emotion + Twin</Wrap>
       <Button />
