@@ -1,4 +1,4 @@
-import { Button } from "ui"
+import { Button, CustomBadge } from "ui"
 import tw, { styled, css } from "twin.macro"
 import {
   Badge,
@@ -41,6 +41,7 @@ const Container = tw.h1`
 export default function Web() {
   return (
     <div>
+      <CustomBadge />
       <h1 className="overflow-ellipsis px-5 font-bold">Web</h1>
       <Container>Hello world!</Container>
       <Stack direction="row">
