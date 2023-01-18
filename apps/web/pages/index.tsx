@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react"
 import { isValidMotionProp, motion } from "framer-motion"
 import { MdSettings, MdReceipt, MdGroupWork } from "react-icons/md"
+import Link from "next/link"
+import { useAppContext } from "../lib/store"
 
 const variant = {
   hover: {
@@ -39,13 +41,15 @@ const Container = tw.h1`
 `
 
 export default function Web() {
+  const state = useAppContext((state) => state)
   return (
     <div>
+      <Link href="/zustand">Zustand</Link>
       <CustomBadge />
       <h1 className="overflow-ellipsis px-5 font-bold">Web</h1>
-      <Container>Hello world!</Container>
+      <Container>Hello world!{state.count}</Container>
       <Stack direction="row">
-        <Badge>Default</Badge>
+        <Badge onClick={() => state.addCount()}>Default</Badge>
         <Badge colorScheme="green">Success</Badge>
         <Badge colorScheme="red">Removed</Badge>
         <Badge colorScheme="purple">New</Badge>
