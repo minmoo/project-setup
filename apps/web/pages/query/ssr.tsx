@@ -6,7 +6,7 @@ export default function Ssr() {
 
   if (isLoading) return <div>Loading...</div>
 
-  return <h1>{data}</h1>
+  return <h1>{data?.name}</h1>
 }
 
 export async function getServerSideProps() {

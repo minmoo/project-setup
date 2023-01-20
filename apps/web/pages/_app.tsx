@@ -10,6 +10,10 @@ import {
 } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+  require("../mocks")
+}
+
 export default function MyApp(
   props: AppProps<{ serverInitState?: any; dehydratedState?: any }>,
 ) {
