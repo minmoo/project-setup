@@ -1,8 +1,8 @@
 import { AppProps } from "next/app"
 import "../globals.css"
 import { ChakraProvider } from "@chakra-ui/react"
-import { useRef, useState } from "react"
-import { AppStoreContext, createAppStore, initializeStore } from "../lib/store"
+import { useState } from "react"
+import { AppStoreContext, initializeStore } from "../lib/store"
 import {
   Hydrate,
   QueryClient,
@@ -26,6 +26,7 @@ export default function MyApp(
             <Component {...pageProps} />
           </ChakraProvider>
         </Hydrate>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </AppStoreContext.Provider>
   )
