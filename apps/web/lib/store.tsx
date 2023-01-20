@@ -1,7 +1,6 @@
-import { create, createStore, useStore } from "zustand"
-import React, { createContext, useContext, useRef } from "react"
-import { immer } from "zustand/middleware/immer"
 import { devtools } from "zustand/middleware"
+import { createStore, useStore } from "zustand"
+import { createContext, useContext } from "react"
 
 interface AppStateProps {
   count: number
@@ -18,17 +17,18 @@ const DEFAULT_PROPS: AppStateProps = {
 
 let store: AppStore
 
+// @ts-ignore
 export const createAppStore = (initProps?: Partial<AppStateProps>) =>
   createStore<AppState>()(
     devtools(
-      immer((set, get) => ({
+      (set, get) => ({
         ...DEFAULT_PROPS,
         ...initProps,
         addCount: () =>
-          set((state) => {
-            state.count = get().count + 1
-          }),
-      })),
+          set((state) => ({
+            count: state.count + 1,
+          })),
+      }),
       {
         enabled:
           typeof window !== "undefined" &&
