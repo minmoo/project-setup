@@ -1,5 +1,6 @@
 import { Button, CustomBadge } from "ui"
-import tw, { styled, css } from "twin.macro"
+import tw from "twin.macro"
+
 import {
   Badge,
   Stack,
@@ -13,6 +14,8 @@ import { isValidMotionProp, motion } from "framer-motion"
 import { MdSettings, MdReceipt, MdGroupWork } from "react-icons/md"
 import Link from "next/link"
 import { useAppContext } from "../lib/store"
+import styled from "@emotion/styled"
+import { css } from "@emotion/react"
 
 const variant = {
   hover: {
